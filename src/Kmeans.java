@@ -86,11 +86,7 @@ public class Kmeans {
             	xsum=xsum+data[d].x;
             	ysum=ysum+data[d].y;
             	count++;
-            	
-            	
-            	
             }
-            
            cluster[m].x = xsum/count;
            cluster[m].y = ysum/count;
         }
