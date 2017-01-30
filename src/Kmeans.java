@@ -76,11 +76,23 @@ public class Kmeans {
         // this method must do the same for cluster[m].y
        System.out.println("----  Calculating new location for cluster ----" + m);
         System.out.println("   This cluster is now at x=" + cluster[m].x + " and y= " + cluster[m].y);
+        int count=0;
+        double xsum=0.0;
+        double ysum=0.0;
         for (int d = 0; d < data.length; d++) {
             // check if this data point is in cluster m
             if (data[d].type == m) {
-                System.out.println("   Found data point in this cluster at x= " + data[d].x + " and y= " + data[d].y);
+                //System.out.println("   Found data point in this cluster at x= " + data[d].x + " and y= " + data[d].y);
+            	xsum=xsum+data[d].x;
+            	ysum=ysum+data[d].y;
+            	count++;
+            	
+            	
+            	
             }
+            
+           cluster[m].x = xsum/count;
+           cluster[m].y = ysum/count;
         }
     }
     // check for empty cluster with no nodes nearby
